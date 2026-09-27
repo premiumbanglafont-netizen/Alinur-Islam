@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>প্রোফাইল কার্ড</title>
+  
+  <!-- Font Awesome Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    /* ব্যাকগ্রাউন্ড ও পেজ স্টাইল */
+    body {
+      background-color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* প্রোফাইল কার্ড স্টাইল */
+    .profile-card {
+      width: 100%;
+      max-width: 320px;
+      background-color: #dbeafe; 
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    /* স্কয়ার প্রোফাইল ছবি */
+    .profile-pic {
+      width: 180px;
+      height: 180px;     
+      border-radius: 12px;   
+      object-fit: cover;     
+      border: 3px solid #1d4ed8; 
+      margin: 0 auto 16px auto;
+      display: block;
+    }
+
+    .profile-name {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .profile-title {
+      margin: 4px 0 12px 0;
+      font-size: 14px;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    .profile-bio {
+      margin: 0 0 20px 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #475569;
+    }
+
+    .profile-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .social-icons a {
+      width: 28px;
+      height: 28px;
+      background-color: #1e293b; 
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 12px;
+      transition: opacity 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      opacity: 0.8;
+    }
+
+    .btn-visit {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      color: #1e293b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      background-color: transparent;
+      transition: all 0.2s ease;
+    }
+
+    .btn-visit:hover {
+      background-color: #1e293b;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <!-- ছবির লিংক (GitHub-এ সেভ করা ছবি হলে 'profile.jpg' দিতে পারেন) -->
+    <img alt="Profile Picture" class="profile-pic" src="alinur.jpg" />
+    
+    <h2 class="profile-name">মোঃ আলিনুর ইসলাম</h2>
+    <p class="profile-title">শিক্ষার্থী, গ্রাফিক ডিজাইনার, টাইপফেস ডিজাইনার</p>
+    <p class="profile-bio">শিক্ষার্থী, গ্রাফিক ডিজাইনার, টাইপফেস ডিজাইনার</p>
+    
+    <div class="profile-footer">
+      <div class="social-icons">
+        <a aria-label="Facebook" href="https://www.facebook.com/share/19fHAe6DPi/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a aria-label="Instagram" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a aria-label="LinkedIn" href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a aria-label="YouTube" href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a aria-label="Email" href="#" target="_blank"><i class="fas fa-envelope"></i></a>
+      </div>
+      
+      <a class="btn-visit" href="https://premiumbanglafont.blogspot.com/search/label/Alinur_Islam" target="_blank">Visit All Font</a>
+    </div>
+  </div>
+
+</body>
+</html>
