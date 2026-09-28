@@ -2,140 +2,335 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>প্রোফাইল কার্ড</title>
-  
-  <!-- Font Awesome Library -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Responsive profile card template for Blogger and GitHub">
+  <title>Responsive Profile Card</title>
+
+  <!-- Font Awesome: Social Media Icon দেখানোর জন্য -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
   <style>
-    /* ব্যাকগ্রাউন্ড ও পেজ স্টাইল */
+    /* =========================================================
+       GLOBAL RESET
+       ========================================================= */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      min-height: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
-      background-color: #f1f5f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      width: 100%;
       min-height: 100vh;
       margin: 0;
+      padding: 24px 12px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: #f1f5f9;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
     }
 
-    /* প্রোফাইল কার্ড স্টাইল */
+    /* =========================================================
+       MAIN PROFILE CARD
+       280px থেকে 440px-এর মধ্যে নিজে নিজে responsive হবে।
+       তাই ছোট-বড় সব ফোন, tablet এবং desktop-এ proportion ঠিক থাকবে।
+       ========================================================= */
     .profile-card {
-      width: 100%;
-      max-width: 320px;
-      background-color: #dbeafe; 
-      border-radius: 16px;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      box-sizing: border-box;
+      width: clamp(280px, 92vw, 440px);
       margin: 0 auto;
+      padding: clamp(22px, 5vw, 32px) clamp(16px, 5vw, 28px);
+      text-align: center;
+      background: #dbeafe;
+      border: 1px solid rgba(37, 99, 235, 0.08);
+      border-radius: clamp(16px, 4vw, 22px);
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.12);
+      overflow: hidden;
     }
 
-    /* স্কয়ার প্রোফাইল ছবি */
+    /* =========================================================
+       ১. প্রোফাইল ছবি
+       ছবির size screen অনুযায়ী নিজে নিজে adjust হবে।
+       ========================================================= */
     .profile-pic {
-      width: 180px;
-      height: 180px;     
-      border-radius: 12px;   
-      object-fit: cover;     
-      border: 3px solid #1d4ed8; 
-      margin: 0 auto 16px auto;
       display: block;
+      width: clamp(140px, 44vw, 190px);
+      height: clamp(140px, 44vw, 190px);
+      margin: 0 auto clamp(16px, 4vw, 20px);
+      object-fit: cover;
+      border: 3px solid #2563eb;
+      border-radius: 16px;
+      background: #ffffff;
     }
 
+    /* Broken image icon দেখালে layout নষ্ট না হওয়ার জন্য */
+    .profile-pic[src="#"] {
+      object-fit: contain;
+      padding: 8px;
+    }
+
+    /* =========================================================
+       ২. আপনার নাম
+       ========================================================= */
     .profile-name {
       margin: 0;
-      font-size: 22px;
-      font-weight: 700;
       color: #0f172a;
+      font-size: clamp(21px, 6vw, 28px);
+      line-height: 1.25;
+      font-weight: 700;
+      overflow-wrap: anywhere;
     }
 
+    /* =========================================================
+       ৩. আপনার পদবী / পরিচয়
+       ========================================================= */
     .profile-title {
-      margin: 4px 0 12px 0;
-      font-size: 14px;
+      margin: 8px 0 10px;
       color: #334155;
-      font-weight: 500;
-    }
-
-    .profile-bio {
-      margin: 0 0 20px 0;
-      font-size: 13px;
+      font-size: clamp(14px, 4vw, 17px);
       line-height: 1.5;
-      color: #475569;
+      font-weight: 600;
+      overflow-wrap: anywhere;
     }
 
+    /* =========================================================
+       ৪. আপনার সম্পর্কে সংক্ষিপ্ত বিবরণ
+       ========================================================= */
+    .profile-bio {
+      max-width: 380px;
+      margin: 0 auto clamp(20px, 5vw, 26px);
+      color: #475569;
+      font-size: clamp(13px, 3.6vw, 15px);
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+
+    /* =========================================================
+       ৫. SOCIAL MEDIA AREA
+       Icon এবং button আলাদা row-তে সুন্দরভাবে wrap করবে।
+       ========================================================= */
     .profile-footer {
+      width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 10px;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .social-icons {
       display: flex;
-      gap: 8px;
-    }
-
-    .social-icons a {
-      width: 28px;
-      height: 28px;
-      background-color: #1e293b; 
-      color: #ffffff;
-      border-radius: 50%;
-      display: flex;
       align-items: center;
       justify-content: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    /* সব Social Icon-এর সাধারণ ডিজাইন */
+    .social-icons a {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #ffffff;
       text-decoration: none;
-      font-size: 12px;
-      transition: opacity 0.2s ease;
+      font-size: 16px;
+      line-height: 1;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+      transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .social-icons a:hover {
-      opacity: 0.8;
+      transform: translateY(-2px) scale(1.06);
+      filter: brightness(0.92);
+      box-shadow: 0 5px 12px rgba(15, 23, 42, 0.20);
     }
 
+    .social-icons a:active {
+      transform: scale(0.96);
+    }
+
+    /* Keyboard accessibility */
+    .social-icons a:focus-visible,
+    .btn-visit:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.35);
+      outline-offset: 3px;
+    }
+
+    /* =========================================================
+       BRAND COLORS
+       প্রতিটি icon-এর আলাদা brand color রাখা হয়েছে।
+       ========================================================= */
+    .facebook { background: #1877f2; }
+    .behance  { background: #1769ff; }
+    .twitter  { background: #1da1f2; }
+    .linkedin { background: #0a66c2; }
+    .youtube  { background: #ff0000; }
+    .email    { background: #ea4335; }
+
+    /* =========================================================
+       ৬. Visit All Font Button
+       ========================================================= */
     .btn-visit {
-      display: inline-block;
-      padding: 6px 16px;
-      border: 1px solid #1e293b;
+      min-width: 116px;
+      min-height: 38px;
+      padding: 8px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #2563eb;
       border-radius: 20px;
-      color: #1e293b;
+      color: #2563eb;
+      background: #ffffff;
       text-decoration: none;
       font-size: 13px;
-      font-weight: 600;
-      background-color: transparent;
-      transition: all 0.2s ease;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+      transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .btn-visit:hover {
-      background-color: #1e293b;
       color: #ffffff;
+      background: #2563eb;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.22);
+    }
+
+    .btn-visit:active {
+      transform: scale(0.98);
+    }
+
+    /* =========================================================
+       VERY SMALL PHONES
+       320px-এর কাছাকাছি screen হলেও content কেটে যাবে না।
+       ========================================================= */
+    @media (max-width: 360px) {
+      body {
+        padding: 14px 8px;
+      }
+
+      .profile-card {
+        width: 96vw;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .social-icons {
+        gap: 6px;
+      }
+
+      .social-icons a {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+        font-size: 15px;
+      }
+    }
+
+    /* =========================================================
+       NARROW MOBILE
+       Button-টি icon-এর নিচে যাবে। এতে কোনো icon লুকাবে না।
+       ========================================================= */
+    @media (max-width: 400px) {
+      .profile-footer {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .social-icons {
+        width: 100%;
+      }
+
+      .btn-visit {
+        width: min(100%, 180px);
+      }
+    }
+
+    /* =========================================================
+       বড় screen-এ card অতিরিক্ত বড় হবে না।
+       ========================================================= */
+    @media (min-width: 768px) {
+      body {
+        padding-top: 40px;
+      }
+    }
+
+    /* Motion কমানো user-এর accessibility preference */
+    @media (prefers-reduced-motion: reduce) {
+      .social-icons a,
+      .btn-visit {
+        transition: none;
+      }
     }
   </style>
 </head>
-<body>
 
-  <div class="profile-card">
-    <!-- ছবির লিংক (GitHub-এ সেভ করা ছবি হলে 'profile.jpg' দিতে পারেন) -->
-    <img alt="Profile Picture" class="profile-pic" src="alinur.jpg" />
-    
-    <h2 class="profile-name">মোঃ আলিনুর ইসলাম</h2>
-    <p class="profile-title">শিক্ষার্থী, গ্রাফিক ডিজাইনার, টাইপফেস ডিজাইনার</p>
-    <p class="profile-bio">শিক্ষার্থী, গ্রাফিক ডিজাইনার, টাইপফেস ডিজাইনার</p>
-    
+<body>
+  <main class="profile-card">
+
+    <!-- =====================================================
+         ১. প্রোফাইল ছবি
+         src="#" এর জায়গায় আপনার ছবির Direct Image URL বসাবেন।
+         উদাহরণ: https://example.com/photo.jpg
+         ===================================================== -->
+    <img src="alinur'jpg" alt="Profile Picture" class="profile-pic">
+
+    <!-- ২. আপনার নাম এখানে লিখুন -->
+    <h1 class="profile-name">#</h1>
+
+    <!-- ৩. আপনার পদবী / পরিচয় এখানে লিখুন -->
+    <p class="profile-title">#</p>
+
+    <!-- ৪. আপনার সম্পর্কে সংক্ষিপ্ত বিবরণ এখানে লিখুন -->
+    <p class="profile-bio">#</p>
+
     <div class="profile-footer">
       <div class="social-icons">
-        <a aria-label="Facebook" href="https://www.facebook.com/share/19fHAe6DPi/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a aria-label="Instagram" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a aria-label="LinkedIn" href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a aria-label="YouTube" href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a aria-label="Email" href="#" target="_blank"><i class="fas fa-envelope"></i></a>
-      </div>
-      
-      <a class="btn-visit" href="https://premiumbanglafont.blogspot.com/search/label/Alinur_Islam" target="_blank">Visit All Font</a>
-    </div>
-  </div>
 
+        <!-- ৫. Facebook Link: href="#" এর জায়গায় আপনার Facebook URL বসান -->
+        <a href="#" class="facebook" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+        </a>
+
+        <!-- ৬. Behance Link: href="#" এর জায়গায় আপনার Behance URL বসান -->
+        <a href="#" class="behance" target="_blank" rel="noopener" aria-label="Behance" title="Behance">
+          <i class="fa-brands fa-behance" aria-hidden="true"></i>
+        </a>
+
+        <!-- ৭. Twitter Link: href="#" এর জায়গায় আপনার Twitter URL বসান -->
+        <a href="#" class="twitter" target="_blank" rel="noopener" aria-label="Twitter" title="Twitter">
+          <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+        </a>
+
+        <!-- ৮. LinkedIn Link: href="#" এর জায়গায় আপনার LinkedIn URL বসান -->
+        <a href="#" class="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+
+        <!-- ৯. YouTube Link: href="#" এর জায়গায় আপনার YouTube URL বসান -->
+        <a href="#" class="youtube" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+        </a>
+
+        <!-- ১০. Email Link: href="#" এর জায়গায় mailto:আপনার@email.com বসাতে পারেন -->
+        <a href="#" class="email" aria-label="Email" title="Email">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- ১১. Visit All Font Link: href="#" এর জায়গায় আপনার Website/Blog URL বসান -->
+      <a href="#" class="btn-visit">Visit All Font</a>
+    </div>
+  </main>
 </body>
 </html>
